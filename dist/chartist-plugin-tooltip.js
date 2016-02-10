@@ -90,6 +90,10 @@
           var hasMeta = !!meta;
           var value = $point.getAttribute('ct:value');
 
+          if(!hasMeta) {
+            return;
+          }
+
           if (options.tooltipFnc) {
             tooltipText = options.tooltipFnc(meta, value);
           } else {
@@ -115,10 +119,10 @@
             }
 
             if (value) {
-              value = '<span class="chartist-tooltip-value">' + value + '</span>';
               if (options.currency) {
                 value = options.currency + value.replace(/(\d)(?=(\d{3})+(?:\.\d+)?$)/g, "$1,");
               }
+              value = '<span class="chartist-tooltip-value">' + value + '</span>';
               tooltipText += value;
             }
           }

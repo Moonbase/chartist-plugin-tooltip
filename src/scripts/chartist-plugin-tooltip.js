@@ -74,6 +74,10 @@
         var hasMeta = !!meta;
         var value = $point.getAttribute('ct:value');
 
+        if(!hasMeta) {
+          return;
+        }
+
         if (options.tooltipFnc) {
           tooltipText = options.tooltipFnc(meta, value);
         } else {
